@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Notes Management App
 
-## Getting Started
+A simple Notes Management application built using **React (Next.js App Router)** as part of an internship assessment.  
+The app demonstrates core React fundamentals such as component-based architecture, state management, and UI state handling (loading, empty, and error states).
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- Add notes with title and optional description
+- Delete existing notes
+- Input validation with error handling
+- Simulated loading state
+- Empty state when no notes exist
+- Clean and responsive UI using Tailwind CSS
+
+---
+
+## 🛠 Tech Stack
+
+- **Next.js** (App Router)
+- **React**
+- **TypeScript (TSX)**
+- **Tailwind CSS**
+
+> Note: Next.js is used only as a React framework. All logic runs on the client side.
+
+---
+
+## 📂 Project Structure
+
+```
+app/
+│
+├── page.tsx // Main component (state management)
+├── components/
+│ ├── NoteForm.tsx // Add note form with validation
+│ ├── NoteList.tsx // Renders list of notes
+│ ├── NoteItem.tsx // Individual note item
+│ ├── Loader.tsx // Loading state UI
+│ └── EmptyState.tsx// Empty state UI
+│
+├── layout.tsx
+└── globals.css
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🧠 State Management & Flow
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- All application state is managed in `page.tsx` using React hooks:
+  - `useState` for notes and loading state
+  - `useEffect` to simulate an API call using `setTimeout`
 
-## Learn More
+### State Flow:
 
-To learn more about Next.js, take a look at the following resources:
+1. App loads → `isLoading` is `true`
+2. Loader is displayed
+3. After simulated delay, loader disappears
+4. User can add or delete notes
+5. If no notes exist, empty state is shown
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ⏳ Loading State
 
-## Deploy on Vercel
+- A simulated API call is created using `setTimeout`
+- While loading, a spinner-based loader is displayed
+- Once loading completes, the main UI is rendered
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📭 Empty State
+
+- If no notes are available, a user-friendly empty state message is shown
+- Encourages users to add their first note
+
+---
+
+## ⚠️ Error Handling
+
+- Title field validation is implemented
+- Displays an error message if the title is empty
+- Submit button is disabled until valid input is provided
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```
+git clone https://github.com/SyedJunaidAli1/assignment
+cd assignment
+```
+
+### 2. Install dependencies
+
+```
+bun install
+```
+
+### 3. Start the development server
+
+```
+bun run dev
+```
+
+
+### 📌 Notes
+
+* No backend or database is used
+
+* No external state management libraries (Redux, Context API)
+
+* Focused purely on React fundamentals as required
